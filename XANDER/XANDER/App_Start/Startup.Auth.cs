@@ -58,11 +58,11 @@ namespace XANDER
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "346128749890-667ios4030qhph9rsmlki45hbovp7aju.apps.googleusercontent.com",
+                ClientSecret = "o-Aic3z844z92-SCHqPW0O5D"
+            });
         }
     }
 }
