@@ -17,9 +17,10 @@ namespace XANDER.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        ApplicationDbContext db;
         public AccountController()
         {
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -139,6 +140,7 @@ namespace XANDER.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.Name = new SelectList(db.Roles.Where(u => !u.Name.Contains("admin")).ToList(), "Name", "Name");
             return View();
         }
 
@@ -156,15 +158,26 @@ namespace XANDER.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    //Assign Role to user Here      
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    if (model.UserRoles.ToLower() == "client")
+                    {
+                        return RedirectToAction("Create", "Clients");
+                    }
+                    else if (model.UserRoles.ToLower() == "worker")
+                    {
+                        return RedirectToAction("Create", "Workers");
+                    }
+                    //Ends Here  
                     return RedirectToAction("Index", "Home");
                 }
+                ViewBag.Name = new SelectList(db.Roles.Where(u => !u.Name.Contains("admin")).ToList(), "Name", "Name");
                 AddErrors(result);
             }
 
