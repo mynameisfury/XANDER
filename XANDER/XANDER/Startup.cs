@@ -25,7 +25,7 @@ namespace XANDER
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            // In Startup iam creating first Admin Role and creating a default Admin User    
+            //Admin Role and creating a default Admin User    
             if (!roleManager.RoleExists("Admin"))
             {
 

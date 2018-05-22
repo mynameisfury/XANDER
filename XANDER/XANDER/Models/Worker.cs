@@ -10,11 +10,14 @@ namespace XANDER.Models
     {
         [Key]
         public int ID { get; set; }
+        [StringLength(50)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+        [StringLength(50)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public int PaymentInfoID { get; set; }
+        [Display(Name = "Profile Description")]
+        public string ProfileDescription { get; set; }
         public int Rating { get; set; }
 
 

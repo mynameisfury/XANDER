@@ -196,15 +196,58 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805161648145_InitialCreate.cs" />
+    <Compile Include="Migrations\201805161648145_InitialCreate.Designer.cs">
+      <DependentUpon>201805161648145_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181333536_aded clientscontroller.cs" />
+    <Compile Include="Migrations\201805181333536_aded clientscontroller.Designer.cs">
+      <DependentUpon>201805181333536_aded clientscontroller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181403489_workers controller added.cs" />
+    <Compile Include="Migrations\201805181403489_workers controller added.Designer.cs">
+      <DependentUpon>201805181403489_workers controller added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181446258_added jo controller.cs" />
+    <Compile Include="Migrations\201805181446258_added jo controller.Designer.cs">
+      <DependentUpon>201805181446258_added jo controller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181541284_1041.cs" />
+    <Compile Include="Migrations\201805181541284_1041.Designer.cs">
+      <DependentUpon>201805181541284_1041.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181637165_1137.cs" />
+    <Compile Include="Migrations\201805181637165_1137.Designer.cs">
+      <DependentUpon>201805181637165_1137.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805211458502_rescaffolding.cs" />
+    <Compile Include="Migrations\201805211458502_rescaffolding.Designer.cs">
+      <DependentUpon>201805211458502_rescaffolding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805211533066_stuff.cs" />
+    <Compile Include="Migrations\201805211533066_stuff.Designer.cs">
+      <DependentUpon>201805211533066_stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805211854488_uhhhhh.cs" />
+    <Compile Include="Migrations\201805211854488_uhhhhh.Designer.cs">
+      <DependentUpon>201805211854488_uhhhhh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805212003148_clientscontroller.cs" />
+    <Compile Include="Migrations\201805212003148_clientscontroller.Designer.cs">
+      <DependentUpon>201805212003148_clientscontroller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\JobWorker.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,6 +312,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Clients\ClientHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -285,6 +334,38 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805161648145_InitialCreate.resx">
+      <DependentUpon>201805161648145_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181333536_aded clientscontroller.resx">
+      <DependentUpon>201805181333536_aded clientscontroller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181403489_workers controller added.resx">
+      <DependentUpon>201805181403489_workers controller added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181446258_added jo controller.resx">
+      <DependentUpon>201805181446258_added jo controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181541284_1041.resx">
+      <DependentUpon>201805181541284_1041.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181637165_1137.resx">
+      <DependentUpon>201805181637165_1137.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805211458502_rescaffolding.resx">
+      <DependentUpon>201805211458502_rescaffolding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805211533066_stuff.resx">
+      <DependentUpon>201805211533066_stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805211854488_uhhhhh.resx">
+      <DependentUpon>201805211854488_uhhhhh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805212003148_clientscontroller.resx">
+      <DependentUpon>201805212003148_clientscontroller.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

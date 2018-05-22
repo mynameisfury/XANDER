@@ -29,5 +29,11 @@ namespace XANDER.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<XANDER.Models.Client> Clients { get; set; }
+
+        public System.Data.Entity.DbSet<XANDER.Models.Worker> Workers { get; set; }
+
+        public System.Data.Entity.DbSet<XANDER.Models.Job> Jobs { get; set; }
     }
 }
