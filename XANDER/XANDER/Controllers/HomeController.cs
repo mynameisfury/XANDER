@@ -11,6 +11,14 @@ namespace XANDER.Controllers
     {
         public ActionResult Index()
         {
+            if (User.IsInRole("Client"))
+            {
+                return RedirectToAction("ClientHome" , "Clients");
+            }
+            else if (User.IsInRole("Worker"))
+            {
+                return RedirectToAction("WorkerHome", "Workers");
+            }
             return View();
         }
 

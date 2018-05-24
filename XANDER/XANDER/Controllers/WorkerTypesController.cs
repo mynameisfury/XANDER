@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -11,114 +10,107 @@ using XANDER.Models;
 
 namespace XANDER.Controllers
 {
-    public class ClientsController : Controller
+    public class WorkerTypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult ClientHome()
-        {
-            return View();
-        }
-        
-
-        // GET: Clients
+        // GET: WorkerTypes
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            return View(db.WorkerTypes.ToList());
         }
 
-        // GET: Clients/Details/5
+        // GET: WorkerTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            WorkerType workerType = db.WorkerTypes.Find(id);
+            if (workerType == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(workerType);
         }
 
-        // GET: Clients/Create
+        // GET: WorkerTypes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: WorkerTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName")] Client client)
+        public ActionResult Create([Bind(Include = "ID,Type")] WorkerType workerType)
         {
             if (ModelState.IsValid)
             {
-                client.UserID = User.Identity.GetUserId();
-                db.Clients.Add(client);
+                db.WorkerTypes.Add(workerType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(client);
+            return View(workerType);
         }
 
-        // GET: Clients/Edit/5
+        // GET: WorkerTypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            WorkerType workerType = db.WorkerTypes.Find(id);
+            if (workerType == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(workerType);
         }
 
-        // POST: Clients/Edit/5
+        // POST: WorkerTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName")] Client client)
+        public ActionResult Edit([Bind(Include = "ID,Type")] WorkerType workerType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                db.Entry(workerType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(client);
+            return View(workerType);
         }
 
-        // GET: Clients/Delete/5
+        // GET: WorkerTypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            WorkerType workerType = db.WorkerTypes.Find(id);
+            if (workerType == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(workerType);
         }
 
-        // POST: Clients/Delete/5
+        // POST: WorkerTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            WorkerType workerType = db.WorkerTypes.Find(id);
+            db.WorkerTypes.Remove(workerType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

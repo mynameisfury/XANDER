@@ -35,5 +35,9 @@ namespace XANDER.Models
         public System.Data.Entity.DbSet<XANDER.Models.Worker> Workers { get; set; }
 
         public System.Data.Entity.DbSet<XANDER.Models.Job> Jobs { get; set; }
+
+        public System.Data.Entity.DbSet<XANDER.Models.JobType> JobTypes { get; set; }
+
+        public System.Data.Entity.DbSet<XANDER.Models.WorkerType> WorkerTypes { get; set; }
     }
 }

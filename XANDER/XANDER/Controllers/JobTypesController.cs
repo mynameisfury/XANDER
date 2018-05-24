@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -11,114 +10,107 @@ using XANDER.Models;
 
 namespace XANDER.Controllers
 {
-    public class ClientsController : Controller
+    public class JobTypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult ClientHome()
-        {
-            return View();
-        }
-        
-
-        // GET: Clients
+        // GET: JobTypes
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            return View(db.JobTypes.ToList());
         }
 
-        // GET: Clients/Details/5
+        // GET: JobTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            JobType jobType = db.JobTypes.Find(id);
+            if (jobType == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(jobType);
         }
 
-        // GET: Clients/Create
+        // GET: JobTypes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: JobTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName")] Client client)
+        public ActionResult Create([Bind(Include = "ID,Type")] JobType jobType)
         {
             if (ModelState.IsValid)
             {
-                client.UserID = User.Identity.GetUserId();
-                db.Clients.Add(client);
+                db.JobTypes.Add(jobType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(client);
+            return View(jobType);
         }
 
-        // GET: Clients/Edit/5
+        // GET: JobTypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            JobType jobType = db.JobTypes.Find(id);
+            if (jobType == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(jobType);
         }
 
-        // POST: Clients/Edit/5
+        // POST: JobTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName")] Client client)
+        public ActionResult Edit([Bind(Include = "ID,Type")] JobType jobType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                db.Entry(jobType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(client);
+            return View(jobType);
         }
 
-        // GET: Clients/Delete/5
+        // GET: JobTypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            JobType jobType = db.JobTypes.Find(id);
+            if (jobType == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(jobType);
         }
 
-        // POST: Clients/Delete/5
+        // POST: JobTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            JobType jobType = db.JobTypes.Find(id);
+            db.JobTypes.Remove(jobType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

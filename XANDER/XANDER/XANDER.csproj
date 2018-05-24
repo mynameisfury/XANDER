@@ -198,7 +198,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
+    <Compile Include="Controllers\JobTypesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\WorkersController.cs" />
+    <Compile Include="Controllers\WorkerTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,14 +246,56 @@
     <Compile Include="Migrations\201805212003148_clientscontroller.Designer.cs">
       <DependentUpon>201805212003148_clientscontroller.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805221910175_fixed the thing.cs" />
+    <Compile Include="Migrations\201805221910175_fixed the thing.Designer.cs">
+      <DependentUpon>201805221910175_fixed the thing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231606451_poop.cs" />
+    <Compile Include="Migrations\201805231606451_poop.Designer.cs">
+      <DependentUpon>201805231606451_poop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231653123_identity.cs" />
+    <Compile Include="Migrations\201805231653123_identity.Designer.cs">
+      <DependentUpon>201805231653123_identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231854207_stuff1.cs" />
+    <Compile Include="Migrations\201805231854207_stuff1.Designer.cs">
+      <DependentUpon>201805231854207_stuff1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231922330_test.cs" />
+    <Compile Include="Migrations\201805231922330_test.Designer.cs">
+      <DependentUpon>201805231922330_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241312556_asdf.cs" />
+    <Compile Include="Migrations\201805241312556_asdf.Designer.cs">
+      <DependentUpon>201805241312556_asdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241429589_fj.cs" />
+    <Compile Include="Migrations\201805241429589_fj.Designer.cs">
+      <DependentUpon>201805241429589_fj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241538419_workrs.cs" />
+    <Compile Include="Migrations\201805241538419_workrs.Designer.cs">
+      <DependentUpon>201805241538419_workrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241552439_p.cs" />
+    <Compile Include="Migrations\201805241552439_p.Designer.cs">
+      <DependentUpon>201805241552439_p.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805241829211_uhh.cs" />
+    <Compile Include="Migrations\201805241829211_uhh.Designer.cs">
+      <DependentUpon>201805241829211_uhh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
+    <Compile Include="Models\JobType.cs" />
     <Compile Include="Models\JobWorker.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Worker.cs" />
+    <Compile Include="Models\WorkerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -318,6 +364,30 @@
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Clients\ClientHome.cshtml" />
+    <Content Include="Views\JobTypes\Create.cshtml" />
+    <Content Include="Views\JobTypes\Delete.cshtml" />
+    <Content Include="Views\JobTypes\Details.cshtml" />
+    <Content Include="Views\JobTypes\Edit.cshtml" />
+    <Content Include="Views\JobTypes\Index.cshtml" />
+    <Content Include="Views\Jobs\Create.cshtml" />
+    <Content Include="Views\Jobs\Delete.cshtml" />
+    <Content Include="Views\Jobs\Details.cshtml" />
+    <Content Include="Views\Jobs\Edit.cshtml" />
+    <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\Jobs\ClientJobs.cshtml" />
+    <Content Include="Views\WorkerTypes\Create.cshtml" />
+    <Content Include="Views\WorkerTypes\Delete.cshtml" />
+    <Content Include="Views\WorkerTypes\Details.cshtml" />
+    <Content Include="Views\WorkerTypes\Edit.cshtml" />
+    <Content Include="Views\WorkerTypes\Index.cshtml" />
+    <Content Include="Views\Workers\Create.cshtml" />
+    <Content Include="Views\Workers\Delete.cshtml" />
+    <Content Include="Views\Workers\Details.cshtml" />
+    <Content Include="Views\Workers\Edit.cshtml" />
+    <Content Include="Views\Workers\Index.cshtml" />
+    <Content Include="Views\Workers\WorkerHome.cshtml" />
+    <Content Include="Views\Jobs\WorkerJobs.cshtml" />
+    <Content Include="Views\Jobs\WorkerDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -365,6 +435,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805212003148_clientscontroller.resx">
       <DependentUpon>201805212003148_clientscontroller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805221910175_fixed the thing.resx">
+      <DependentUpon>201805221910175_fixed the thing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231606451_poop.resx">
+      <DependentUpon>201805231606451_poop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231653123_identity.resx">
+      <DependentUpon>201805231653123_identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231854207_stuff1.resx">
+      <DependentUpon>201805231854207_stuff1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231922330_test.resx">
+      <DependentUpon>201805231922330_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241312556_asdf.resx">
+      <DependentUpon>201805241312556_asdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241429589_fj.resx">
+      <DependentUpon>201805241429589_fj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241538419_workrs.resx">
+      <DependentUpon>201805241538419_workrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241552439_p.resx">
+      <DependentUpon>201805241552439_p.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241829211_uhh.resx">
+      <DependentUpon>201805241829211_uhh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
