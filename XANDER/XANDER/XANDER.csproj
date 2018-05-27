@@ -201,6 +201,7 @@
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\JobTypesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Controllers\WorkerTypesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -285,6 +286,10 @@
     <Compile Include="Migrations\201805241829211_uhh.cs" />
     <Compile Include="Migrations\201805241829211_uhh.Designer.cs">
       <DependentUpon>201805241829211_uhh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805251403529_cakeday.cs" />
+    <Compile Include="Migrations\201805251403529_cakeday.Designer.cs">
+      <DependentUpon>201805251403529_cakeday.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -388,9 +393,14 @@
     <Content Include="Views\Workers\WorkerHome.cshtml" />
     <Content Include="Views\Jobs\WorkerJobs.cshtml" />
     <Content Include="Views\Jobs\WorkerDetails.cshtml" />
+    <Content Include="Views\Jobs\AcceptJob.cshtml" />
+    <Content Include="Views\Jobs\InProgress.cshtml" />
+    <Content Include="Views\Upload\UploadFile.cshtml" />
+    <Content Include="Views\Workers\SearchWorkers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -465,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805241829211_uhh.resx">
       <DependentUpon>201805241829211_uhh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805251403529_cakeday.resx">
+      <DependentUpon>201805251403529_cakeday.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -29,7 +29,17 @@ namespace XANDER.Controllers
             return View(jobs.ToList());
         
         }
-        
+
+        public ActionResult InProgress()
+        {
+            string userID = User.Identity.GetUserId();
+            var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();
+            var worker = db.Workers.Where(c => c.UserID == user.Id).FirstOrDefault();
+            var jobs = db.Jobs.Where(j => j.WorkerID == worker.ID);
+            return View(jobs.ToList());
+
+        }
+
         public ActionResult AcceptJob(int? id)
         {
             string userID = User.Identity.GetUserId();
@@ -45,7 +55,9 @@ namespace XANDER.Controllers
                 return HttpNotFound();
             }
             job.WorkerID = worker.ID;
+            job.Worker = worker;
             job.Accepted = true;
+            db.SaveChanges();
             return View(job);
         }
 

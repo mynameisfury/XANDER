@@ -3,13 +3,15 @@
 }
 
 
+
+
 @model XANDER.Models.Job
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Job accepted!</h2>
 
 <div>
     <h4>Job</h4>
@@ -81,15 +83,6 @@
             </dd>*@
 
     </dl>
-    @if (Model.Accepted == false)
-    {
-    <p><a class="btn btn-default" href="@Url.Action("AcceptJob","Jobs")">Accept job</a></p>
-    }
-    else if (Model.Accepted == true)
-    {
-    <p><a class="btn btn-default" href="@Url.Action("UploadFile","Upload")">Submit job</a></p>
-    }
-
 
     @*<p><a class="btn btn-default" href="@Url.Action("AcceptJob","JobsController")">Accept job</a></p>*@
 </div>

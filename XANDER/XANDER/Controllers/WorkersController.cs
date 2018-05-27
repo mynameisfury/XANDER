@@ -19,6 +19,11 @@ namespace XANDER.Controllers
         {
             return View();
         }
+        public ActionResult SearchWorkers()
+        {
+            var workers = db.Workers.Include(w => w.WorkerType);
+            return View(workers.ToList());
+        }
 
         // GET: Workers
         public ActionResult Index()
