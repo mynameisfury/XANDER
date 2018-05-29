@@ -19,7 +19,6 @@ namespace XANDER.Controllers
         {
             return View();
         }
-        
 
         // GET: Clients
         public ActionResult Index()
@@ -53,14 +52,14 @@ namespace XANDER.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName")] Client client)
+        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,Username,UserID")] Client client)
         {
             if (ModelState.IsValid)
             {
                 client.UserID = User.Identity.GetUserId();
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ClientHome");
             }
 
             return View(client);
@@ -86,10 +85,11 @@ namespace XANDER.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName")] Client client)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,Username")] Client client)
         {
             if (ModelState.IsValid)
             {
+                
                 db.Entry(client).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -12,11 +12,18 @@ namespace XANDER.Models
         [Key]
         public int ID { get; set; }
         public string MessageBody { get; set; }
+        public string Subject { get; set; }
         public DateTime TimeStamp { get; set; }
-        [ForeignKey("Client")]
-        public int ClientID {get; set;}
+
+        public int ClientID { get; set; }
+        [ForeignKey("ClientID")]
+        public virtual Client Client { get; set; }
+
+
         [ForeignKey("Worker")]
         public int WorkerID { get; set; }
+        public virtual Worker Worker { get; set; }
+        
 
 
     }

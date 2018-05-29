@@ -207,6 +207,7 @@
     <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Controllers\JobTypesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Controllers\WorkerTypesController.cs" />
@@ -297,6 +298,18 @@
     <Compile Include="Migrations\201805251403529_cakeday.Designer.cs">
       <DependentUpon>201805251403529_cakeday.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805291410572_strife....cs" />
+    <Compile Include="Migrations\201805291410572_strife....Designer.cs">
+      <DependentUpon>201805291410572_strife....cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805291438558_why.cs" />
+    <Compile Include="Migrations\201805291438558_why.Designer.cs">
+      <DependentUpon>201805291438558_why.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805291619342_mistakes.cs" />
+    <Compile Include="Migrations\201805291619342_mistakes.Designer.cs">
+      <DependentUpon>201805291619342_mistakes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -373,12 +386,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Clients\Create.cshtml" />
-    <Content Include="Views\Clients\Delete.cshtml" />
-    <Content Include="Views\Clients\Details.cshtml" />
-    <Content Include="Views\Clients\Edit.cshtml" />
-    <Content Include="Views\Clients\Index.cshtml" />
-    <Content Include="Views\Clients\ClientHome.cshtml" />
     <Content Include="Views\JobTypes\Create.cshtml" />
     <Content Include="Views\JobTypes\Delete.cshtml" />
     <Content Include="Views\JobTypes\Details.cshtml" />
@@ -407,6 +414,21 @@
     <Content Include="Views\Jobs\InProgress.cshtml" />
     <Content Include="Views\Upload\UploadFile.cshtml" />
     <Content Include="Views\Workers\SearchWorkers.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Messages\ClientMessages.cshtml" />
+    <Content Include="Views\Messages\WorkerMessages.cshtml" />
+    <Content Include="Views\Messages\ClientCreate.cshtml" />
+    <Content Include="Views\Messages\WorkerCreate.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Clients\ClientHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -488,6 +510,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805251403529_cakeday.resx">
       <DependentUpon>201805251403529_cakeday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291410572_strife....resx">
+      <DependentUpon>201805291410572_strife....cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291438558_why.resx">
+      <DependentUpon>201805291438558_why.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291619342_mistakes.resx">
+      <DependentUpon>201805291619342_mistakes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
