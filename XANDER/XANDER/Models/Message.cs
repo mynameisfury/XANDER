@@ -13,7 +13,7 @@ namespace XANDER.Models
         public int ID { get; set; }
         public string MessageBody { get; set; }
         public string Subject { get; set; }
-        public DateTime TimeStamp { get; set; }
+        public DateTime? TimeStamp { get; set; }
 
         public int ClientID { get; set; }
         [ForeignKey("ClientID")]

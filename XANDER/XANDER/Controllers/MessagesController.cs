@@ -105,6 +105,11 @@ namespace XANDER.Controllers
         {
             if (ModelState.IsValid)
             {
+                string userID = User.Identity.GetUserId();
+                var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();
+                var client = db.Clients.Where(c => c.UserID == user.Id).FirstOrDefault();
+                message.ClientID = client.ID;
+                message.TimeStamp = DateTime.Now;
                 db.Messages.Add(message);
                 db.SaveChanges();
                 return RedirectToAction("ClientMessages");
@@ -120,6 +125,11 @@ namespace XANDER.Controllers
         {
             if (ModelState.IsValid)
             {
+                string userID = User.Identity.GetUserId();
+                var user = db.Users.Where(u => u.Id == userID).FirstOrDefault();
+                var worker = db.Workers.Where(w => w.UserID == user.Id).FirstOrDefault();
+                message.WorkerID = worker.ID;
+                message.TimeStamp = DateTime.Now;
                 db.Messages.Add(message);
                 db.SaveChanges();
                 return RedirectToAction("WorkerMessages");
@@ -188,7 +198,16 @@ namespace XANDER.Controllers
             Message message = db.Messages.Find(id);
             db.Messages.Remove(message);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            if (User.IsInRole("Client"))
+            {
+                return RedirectToAction("ClientMessages");
+            }
+            else if (User.IsInRole("Worker"))
+            {
+                return RedirectToAction("WorkerMessages");
+            }
+
+            else return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

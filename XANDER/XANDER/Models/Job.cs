@@ -42,5 +42,6 @@ namespace XANDER.Models
 
         public bool Accepted { get; set; }
 
+        public string Filepath { get; set; }
     }
 }

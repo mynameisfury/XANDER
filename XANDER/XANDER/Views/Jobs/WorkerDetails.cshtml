@@ -87,12 +87,12 @@
     }
     else if (Model.Accepted == true)
     {
-    <p><a class="btn btn-default" href="@Url.Action("UploadFile","Upload")">Submit job</a></p>
+    <p><a class="btn btn-default" href="@Url.Action("UploadFile","Jobs", new { id = Model.ID })">Submit job</a></p>
     }
 
 
     @*<p><a class="btn btn-default" href="@Url.Action("AcceptJob","JobsController")">Accept job</a></p>*@
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "InProgress")
 </p>

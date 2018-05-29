@@ -310,9 +310,18 @@
     <Compile Include="Migrations\201805291619342_mistakes.Designer.cs">
       <DependentUpon>201805291619342_mistakes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805291845579_please god.cs" />
+    <Compile Include="Migrations\201805291845579_please god.Designer.cs">
+      <DependentUpon>201805291845579_please god.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805292036352_please god #46 with extra dip.cs" />
+    <Compile Include="Migrations\201805292036352_please god #46 with extra dip.Designer.cs">
+      <DependentUpon>201805292036352_please god #46 with extra dip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\File.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\JobType.cs" />
@@ -429,6 +438,7 @@
     <Content Include="Views\Clients\Edit.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Clients\ClientHome.cshtml" />
+    <Content Include="Views\Jobs\UploadFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -519,6 +529,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805291619342_mistakes.resx">
       <DependentUpon>201805291619342_mistakes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291845579_please god.resx">
+      <DependentUpon>201805291845579_please god.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805292036352_please god #46 with extra dip.resx">
+      <DependentUpon>201805292036352_please god #46 with extra dip.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
