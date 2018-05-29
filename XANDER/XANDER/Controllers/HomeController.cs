@@ -35,5 +35,12 @@ namespace XANDER.Controllers
 
             return View();
         }
+
+        public ActionResult Webhook()
+        {
+            //Handle webhook call
+        }
+
+
     }
 }
