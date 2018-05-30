@@ -62,5 +62,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "SearchWorkers")
+    <a class="btn btn-default" href="@Url.Action("Create", "Jobs", new { worker = Model.ID })">Request job</a>
+   <p> @Html.ActionLink("Back to List", "SearchWorkers")</p>
 </p>

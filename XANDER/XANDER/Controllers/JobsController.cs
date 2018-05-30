@@ -24,11 +24,34 @@ namespace XANDER.Controllers
             var jobs = db.Jobs.Where(j => j.ClientID == client.ID);
             return View(jobs.ToList());
         }
-        public ActionResult WorkerJobs()
+        public ActionResult WorkerJobs(string sortOrder)
         {
+
+            
+
             var jobs = db.Jobs.Include(j => j.Client).Include(j => j.JobType).Include(j => j.Worker).Where(j => j.Accepted == false);
+
+            switch (sortOrder)
+            {
+                case "Type":
+                    jobs = jobs.OrderByDescending(j => j.JobTypeID);
+                    break;
+                case "DueDate":
+                    jobs = jobs.OrderByDescending(j => j.DueDate);
+                    break;
+                case "Payout":
+                    jobs = jobs.OrderByDescending(j => j.JobPayout);                   
+                    break;
+                default: 
+                    jobs = jobs.OrderByDescending(j => j.JobName);
+                    break;
+            }
             return View(jobs.ToList());
         
+        }
+        public ActionResult JobComplete()
+        {
+            return View();
         }
 
         public ActionResult InProgress()
@@ -45,7 +68,7 @@ namespace XANDER.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult UploadFile(HttpPostedFileBase file, int? id)
+        public ActionResult UploadFile([Bind(Include ="Completed")]HttpPostedFileBase file, int? id)
         {
             try
             {

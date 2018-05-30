@@ -10,6 +10,8 @@
     <h4>Message</h4>
     <hr />
     <dl class="dl-horizontal">
+        
+        
         <dt>
             @Html.DisplayNameFor(model => model.Client.FirstName)
         </dt>
@@ -46,5 +48,14 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    @if (User.IsInRole("Client"))
+    {
+        @Html.ActionLink("Back to List", "ClientMessages")
+    }
+    else if (User.IsInRole("Worker"))
+    {
+        @Html.ActionLink("Back to List", "WorkerMessages")
+    }
+
 </p>

@@ -13,7 +13,10 @@
 }
 <h2>Available jobs</h2>
 
+
 <table class="table">
+
+
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.JobName)
@@ -25,7 +28,7 @@
             @Html.DisplayNameFor(model => model.Client.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.JobType.Type)
+            @Html.ActionLink("Type", "WorkerJobs", new { sortOrder = "Type" })
         </th>
        
 
@@ -33,10 +36,10 @@
             @Html.DisplayNameFor(model => model.JobDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.JobPayout)
+            @Html.ActionLink("Payout", "WorkerJobs", new { sortOrder = "Payout" })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DueDate)
+            @Html.ActionLink("Due date", "WorkerJobs", new { sortOrder = "DueDate" })
         </th>
         
         <th></th>

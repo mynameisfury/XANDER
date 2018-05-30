@@ -10,12 +10,14 @@
     <h4>Job</h4>
     <hr />
     <dl class="dl-horizontal">
+
+
         <dt>
-            @Html.DisplayNameFor(model => model.Client.FirstName)
+            @Html.DisplayNameFor(model => model.JobName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Client.FirstName)
+            @Html.DisplayFor(model => model.JobName)
         </dd>
 
         <dt>
@@ -27,20 +29,14 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Worker.FirstName)
+            @Html.DisplayNameFor(model => model.Worker.Username)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Worker.FirstName)
+            @Html.DisplayFor(model => model.Worker.Username)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JobName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.JobName)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.JobDescription)
@@ -80,10 +76,14 @@
         <dd>
             @Html.DisplayFor(model => model.Filepath)
         </dd>
-
+        @if (User.IsInRole("Client")&& Model.Filepath != null)
+        {
+            <a class="btn btn-default" href="@Url.Action("JobComplete","Jobs", new { id = Model.ID }) ">Accept job</a>
+        }
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) 
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ID }) 
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model XANDER.Models.Job
+
+<h2>Job complete!</h2>
+
+<div>
+    <div>
+        <h4>Job</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobType.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobType.Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Worker.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Worker.Username)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobPayout)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobPayout)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DueDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Completed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Completed)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Filepath)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Filepath)
+            </dd>
+           
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "ClientJobs")
+    </p>
+</div>
